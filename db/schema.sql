@@ -10,3 +10,8 @@ CREATE TABLE grocery_list
 	in_basket BOOLEAN DEFAULT false,
 	PRIMARY KEY (id)
 );
+
+--
+-- For Heroku
+--
+USE wi08r4zv8g4aixqw;
