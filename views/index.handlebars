@@ -1,0 +1,43 @@
+<h1>Groceries</h1>
+
+<h2>Groceries not in basket</h2>
+<ul>
+{{#each grocery}}
+{{/each}}
+</ul>
+
+
+<ul>
+  {{#each grocery}}
+    {{#unless in_basket}}
+      {{> grocery/grocery-block in_basket=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Groceries in basket</h2>
+
+<ul>
+  {{#each grocery}}
+    {{#if in_basket}}
+      {{> grocery/grocery-block in_basket=true}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add grocery item to the list</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Item Name:</label>
+    <input type="text" id="ca" name="item">
+  </div>
+
+  <div class="form-group">
+    <label for="basket">In basket?</label><br>
+    <input type="radio" name="in_basket" value="0" checked> Not in basket<br>
+    <input type="radio" name="in_basket" value="1"> In basket
+  </div>
+
+  <button type="submit">Add Item</button>
+</form>
