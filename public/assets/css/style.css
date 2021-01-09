@@ -1,7 +1,17 @@
 li {
   padding: 5px;
   margin: 5px;
-  background: #faebd7;
+  /* background: #faebd7; */
+  font-size: 125%;
+  background: lightskyblue;
+}
+
+.list-group-item {
+  background: lightskyblue;
+  border-width: 0px;
+}
+ul {
+  background-color: lightskyblue;
 }
 
 .label {
@@ -16,4 +26,21 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+
+body {
+  background-color: lightskyblue;
+}
+
+#main-area {
+  padding-left: 10px;
+}
+
+#applicationName {
+  position: absolute;
+  right: 20px;
+}
+
+#companyName {
+  padding-left: 10px;
 }
