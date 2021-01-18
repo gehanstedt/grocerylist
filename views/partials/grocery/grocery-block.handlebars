@@ -1,10 +1,16 @@
 <li class="list-group-item">
-	{{item}}
-
 	<button class="change-basket" data-id="{{id}}" data-in-basket="{{in_basket}}">
 		{{#if in_basket}}<img src="/assets/images/remove-from-cart-24px.png">{{else}}<img src="/assets/images/add-to-cart-24px.png">{{/if}}
 	</button>
+
+	&nbsp;
+
+	{{item}}
+
+	&nbsp;
+
 	<button class="delete-grocery" data-id="{{id}}">
 		<img src="/assets/images/rubbish.png">
 	</button>
+
 </li>
