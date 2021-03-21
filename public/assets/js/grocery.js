@@ -36,7 +36,7 @@ $(function() {
 
   $(".delete-grocery").on("click", function(event) {
     var id = $(this).data("id");
-    // Send the PUT request.
+    // Send the DELETE request.
     $.ajax("/api/grocery/" + id, {
       type: "DELETE",
     }).then(
@@ -48,7 +48,6 @@ $(function() {
     );
   });
 
-
   $(".create-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -58,16 +57,36 @@ $(function() {
       in_basket: $("[name=in_basket]:checked").val().trim()
     };
 
-    // Send the POST request.
-    $.ajax("/api/grocery", {
-      type: "POST",
-      data: newGroceryItem
-    }).then(
-      function() {
-        console.log("created new grocery item");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+    console.log (newGroceryItem);
+    console.log (newGroceryItem.name);
+    // alert (`Pause`);
+
+    if (newGroceryItem.name.toUpperCase () === "CLEAR") {
+      // Send the DELETE request.
+      $.ajax("/api/groceryall", {
+        type: "DELETE",
+        data: ""
+      }).then(
+        function() {
+          console.log("deleted all grocery items");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    }
+
+    else {
+      // Send the POST request.
+      $.ajax("/api/grocery", {
+        type: "POST",
+        data: newGroceryItem
+      }).then(
+        function() {
+          console.log("created new grocery item");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    }
   });
 });

@@ -61,5 +61,18 @@ router.delete("/api/grocery/:id", function(req, res) {
   });
 });
 
+router.delete("/api/groceryall", function(req, res) {
+  grocery.deleteall(function(result) {
+    console.log ("Result of delete:")
+    console.log (result);
+    if (result.warningCount == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      res.status(200).end();
+    } else {
+      return res.status(404).end();
+    }
+  });
+});
+
 // Export routes for server.js to use.
 module.exports = router;

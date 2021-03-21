@@ -104,6 +104,20 @@ var orm = {
 
       cb(result);
     });
+  },
+  deleteall: function(table, cb) {
+//    console.log (`condition in orm.js-deleteall:  ${condition}`);
+    var queryString = "TRUNCATE TABLE " + table;
+    queryString += ";";
+
+    console.log(queryString);
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
   }
 };
 

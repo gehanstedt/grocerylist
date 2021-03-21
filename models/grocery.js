@@ -22,6 +22,11 @@ var grocery = {
     orm.delete("grocery_list", condition, function(res) {
       cb(res);
     });
+  },
+  deleteall: function(cb) {
+    orm.deleteall("grocery_list", function(res) {
+      cb(res);
+    });
   }
 
 };
